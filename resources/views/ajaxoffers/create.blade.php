@@ -1,143 +1,101 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+@section('content')
+  <div class="container" >
+      <div class="alert alert-success" id="success_msg" style="display:none;">
+          تم الحفظ بنجاح
+      </div>
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <ul class="navbar-nav mr-auto">
-                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                <li class="nav-item active">
-                  <a class="nav-link" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">  {{ $properties['native'] }}</a>
-                </li>
-                @endforeach
-              </ul>
-              @if (Route::has('login'))
-              <div class="top-right links">
-                  @auth
-                      <a href="{{ url('/home') }}">Home</a>
-                  @else
-                      <a href="{{ route('login') }}">Login</a>
-
-                      @if (Route::has('register'))
-                          <a href="{{ route('register') }}">Register</a>
-                      @endif
-                  @endauth
-              </div>
-          @endif
-        </nav>
-        <div class="flex-center position-ref full-height">
+    <div class="flex-center position-ref full-height">
 
 
 
-            <div class="content">
-                <div class="title m-b-md">
-                    create add
-                </div>
-                @if(Session::has('success'))
-                    <div class="alert alert-success" role="alert">
-                   {{ Session::get('success')}}
-                    </div>
-                @endif
-                  <br>
-                <form  method="POST" action="{{route('offers.store') }}" enctype="multipart/form-data">
-                 {{-- <input name ="_token" value="{{csrf_token()}}">--}}
-                     @csrf
-                     <div class="form-group">
-                        <label >اختر صورة</label>
-                        <input type="file" class="form-control" name="photo"  >
-                        @error('photo')
-                        <small  class="form-text text-danger">{{$message}}</small>
-                        @enderror
-                      </div>
-                    <div class="form-group">
-                      <label >offre name</label>
-                      <input type="text" class="form-control" name="name"  placeholder="Enter name">
-                      @error('name')
-                      <small  class="form-text text-danger">{{$message}}</small>
-                      @enderror
-                    </div>
-                    <div class="form-group">
-                      <label >offer price</label>
-                      <input type="text" class="form-control" name="price" placeholder="price">
-                      @error('price')
-                      <small  class="form-text text-danger">{{$message}}</small>
-                      @enderror
-                    </div>
-                    <div class="form-group">
-                        <label >offer details</label>
-                        <input type="text" class="form-control" name="details" placeholder="details">
-                        @error('details')
-                      <small  class="form-text text-danger">{{$message}}</small>
-                      @enderror
-                      </div>
-
-                    <button type="submit" class="btn btn-primary">save</button>
-                  </form>
-
-
-
+        <div class="content">
+            <div class="title m-b-md">
+                create add
             </div>
+            @if(Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ Session::get('success')}}
+                </div>
+            @endif
+            <br>
+            <form  method="POST" id="offerForm" action="" enctype="multipart/form-data">
+                {{-- <input name ="_token" value="{{csrf_token()}}">--}}
+                @csrf
+                <div class="form-group">
+                    <label >اختر صورة</label>
+                    <input type="file" class="form-control photo" name="photo"  >
+                    <small  id="photo_error" class="form-text text-danger"></small>
+                </div>
+                <div class="form-group">
+                    <label >offre name</label>
+                    <input type="text" class="form-control name" name="name"  placeholder="Enter name">
+                    <small id="name_error"  class="form-text text-danger"></small>
+                </div>
+                <div class="form-group">
+                    <label >offer price</label>
+                    <input type="text" class="form-control price" name="price" placeholder="price">
+                    <small id="price_error" class="form-text text-danger"></small>
+                </div>
+                <div class="form-group">
+                    <label >offer details</label>
+                    <input type="text" class="form-control details" name="details" placeholder="details">
+                    <small id="details_error" class="form-text text-danger"></small>
+                </div>
+
+                <button id="save_offer" class="btn btn-primary">save</button>
+            </form>
+
+
+
         </div>
-    </body>
-</html>
+    </div>
+  </div>
+    @stop
+@section('scripts')
+    <script>
+         $(document).on('click','#save_offer',function (e) {
+             e.preventDefault();
+             $('#photo_error').text('');
+             $('#name_error').text('');
+             $('#price_error').text('');
+             $('#details_error').text('');
+
+             var formData = new FormData($('#offerForm')[0]);
+             $.ajax({
+                 type: 'post',
+                 enctype:'multipart/form-data',
+                 url: "{{route('ajax.offers.store') }}",
+                 data: formData,
+                 processData: false,
+                 contentType: false,
+                 cache: false,
+                 success: function (data) {
+
+                     if(data.status == true){
+                       $('#success_msg').show();
+                         $('.photo').val('');
+                         $('.name').val('');
+                         $('.price').val('');
+                         $('.details').val('');
+                     }
+                 },
+
+                 error: function (reject) {
+                     var response = $.parseJSON(reject.responseText);
+                     $.each(response.errors, function (key, val) {
+                         $("#" + key + "_error").text(val[0]);
+                     });
+
+                 },
+
+             });
+         });
+
+
+
+    </script>
+
+    @stop

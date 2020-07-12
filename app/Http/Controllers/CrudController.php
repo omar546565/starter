@@ -90,7 +90,7 @@ class CrudController extends Controller
 
     public function getAllOffers()
         {
-            $offers = Offer::select('id','name','price','details') ->get();
+            $offers = Offer::select('id','name','price','details','photo') ->get();
 
             return view('offers.all',compact('offers'));
 
@@ -104,26 +104,37 @@ class CrudController extends Controller
 
         return  redirect()-> back() ;
 
-        $offer =   Offer::select('id','name','price','details') ->find($offer_id);
+        $offer =   Offer::select('id','name','price','details','photo') ->find($offer_id);
         return view('offers.edit',compact('offer'));
 
+       }
+
+       public function delete($offer_id){
+
+           $offer = Offer::find($offer_id);
+           if(!$offer)
+
+               return  redirect()-> back() -> with(['error' => 'العرض غير موجود']) ;
+            $offer -> delete();
+               return  redirect()->route('offers.all')  -> with(['success' => 'تم حذف العرض']) ;
        }
 
 
        public function UpdateOffer(OfferRequest $request,$offer_id){
 
-
+        $file_name =  $this -> saveImage($request -> photo , 'images/offers' );
         $offer =   Offer::find($offer_id);
          if(!$offer)
         return  redirect()-> back() ;
-
-        $offer -> update($request ->all());
-        return  redirect()->back()->with(['success' => 'تم تعديل العرض بنجاح']);
-      /*   $offer -> update([
+        $offer -> update([
+            'photo' => $file_name,
             'name' => $request -> name,
             'price' => $request -> price,
             'details' => $request -> details,
-        ]); */
+        ]);
+       // $offer -> update($request ->all());
+        return  redirect()->back()->with(['success' => 'تم تعديل العرض بنجاح']);
+
 
        }
 

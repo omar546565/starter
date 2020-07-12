@@ -100,7 +100,7 @@
                     </div>
                 @endif
                   <br>
-                <form  method="POST" action="{{route('offers.update',$offer -> id)}}">
+                <form  method="POST" action="{{route('offers.update',$offer -> id)}}" enctype="multipart/form-data">
                  {{-- <input name ="_token" value="{{csrf_token()}}">--}}
                      @csrf
                     <div class="form-group">
@@ -123,6 +123,14 @@
                         @error('details')
                       <small  class="form-text text-danger">{{$message}}</small>
                       @enderror
+                      </div>
+                      <div class="form-group">
+                        <label >images</label>
+                        <img   style="border: 1px solid #063765;border-radius: 50px;background-color: #FFFFFF;"  src="{{ url('images/offers/'.$offer -> photo) }}" alt="*"width="50" height="50">
+                        <input type="file" class="form-control" name="photo"  >
+                        @error('photo')
+                        <small  class="form-text text-danger">{{$message}}</small>
+                        @enderror
                       </div>
 
                     <button type="submit" class="btn btn-success">update</button>

@@ -1,8 +1,12 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+    <br>
+    <br>
+    <br>
 
-    <p class="alert alert-success"> تم تسجيل الدخول</p>
+    <div class="container">
+
+    <p class="alert alert-success">انت مستخدم ومسجل دخول</p>
 
 </div>
 @stop

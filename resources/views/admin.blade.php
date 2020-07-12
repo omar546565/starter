@@ -6,7 +6,7 @@
 
     <div class="container">
 
-    <p class="alert alert-success">انت مستخدمل ومسجل دخول</p>
+    <p class="alert alert-success">انت admin ومسجل دخول</p>
 
 </div>
 @stop

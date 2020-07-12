@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    يرجى مراجعة المدير
                 </div>
             </div>
         </div>

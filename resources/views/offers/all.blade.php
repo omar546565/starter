@@ -86,7 +86,13 @@
               </div>
           @endif
         </nav>
-        <div class="flex-center position-ref full-height">
+        @if(Session::has('success'))
+            <div class="alert alert-success" role="alert" style="text-align: center">
+                {{ Session::get('success')}}
+            </div>
+        @endif
+
+
         <table class="table">
   <thead>
     <tr>
@@ -95,6 +101,8 @@
       <th scope="col">price</th>
       <th scope="col">details</th>
       <th scope="col">edit</th>
+      <th scope="col">delete</th>
+      <th scope="col">image</th>
     </tr>
   </thead>
   <tbody>
@@ -105,6 +113,8 @@
       <td>{{ $offer -> price }}</td>
       <td>{{ $offer -> details }}</td>
       <td> <a href="{{ url('offers/edit/'.$offer -> id) }}" class="btn btn-success">تحرير</a></td>
+      <td> <a href="{{route('offers.delete',$offer -> id)}}" class="btn btn-danger">delete</a></td>
+      <td><img   style="border: 1px solid #063765;border-radius: 50px;background-color: #FFFFFF;"  src="{{ url('images/offers/'.$offer -> photo) }}" alt="*"width="50" height="50"> </td>
     </tr>
      @endforeach
   </tbody>
@@ -112,6 +122,6 @@
 
 
 
-        </div>
+
     </body>
 </html>
