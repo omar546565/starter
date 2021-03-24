@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+define('PAGINATION_COUNT',3);
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
 
 Route::group(['namespace' => 'Admin'],function(){
@@ -26,7 +28,8 @@ Route::get('login', function () {
 }) -> name('login');
 
 
-Route::get('/', function () {
+Route::get('/23', function () {
+
     return view('welcome');
 });
 
@@ -37,6 +40,15 @@ Route::get('/test2/{id}', function ($id) {
 }) -> name('a');
 
 Route::get('/landing', function () {
+
+
+    $connection = new BulkGate\Message\Connection('19137', 'vg1nFNyxsf0W6vRV1XJ47hwgdzA3U1mi5ZYHMaH7tQ8OVWjTUI');
+
+    $sender = new BulkGate\Sms\Sender($connection);
+    $message = new BulkGate\Sms\Message('905528492990', 'تجريب الرسائل');
+
+    $sender->send($message);
+
     return view('landing');
 });
 
@@ -50,6 +62,8 @@ Route::resource('news','NewsController');
 Auth::routes(['verify'=>true]);
 
 Route::get('/home', 'HomeController@index')->name('home') ->middleware('verified');
+Route::get('/home22/{id}', 'HomeController@index22')->name('home22') ->middleware('verified');
+Route::get('/export', 'NewsController@export')->name('home2') ;
 
 
 Route::get('fillable','CrudController@getOffers');
@@ -63,14 +77,15 @@ Route::group(['prefix' => 'offers'],function(){
 
     Route::get('create','CrudController@create');
    Route::post('store','CrudController@store') ->name('offers.store');
+   Route::post('nameconfirm','OffreController@nameconfirm') ->name('name.confirm');
 
    Route::get('edit/{offer_id}','CrudController@editOffer');
    Route::post('update/{offer_id}','CrudController@Updateoffer') ->name('offers.update');
    Route::get('delete/{offer_id}','CrudController@delete') ->name('offers.delete');
 
-
-
    Route::get('all','CrudController@getAllOffers') -> name('offers.all');
+
+   Route::get('get-all-inactive-offer','CrudController@getAllInactiveOffers') ;
 });
 
 
@@ -121,12 +136,26 @@ Route::get('get-user-not-has-phone-with-condition','Relation\RelationsController
 #################### Begin one to many relationship #################
 Route::get('hospital-has-many','Relation\RelationsController@getHospitalDoctors');
 
-Route::get('hospitals','Relation\RelationsController@hospitals');
+Route::get('hospitals','Relation\RelationsController@hospitals')-> name ('hospitals.all');
+
+
+
+
 Route::get('doctors/{hospital_id}','Relation\RelationsController@doctors')-> name('hospital.doctors');
 
 
 
+Route::get('hospitals/{hospital_id}','Relation\RelationsController@deleteHospital')-> name('hospital.delete');
 
+Route::get('hospitals_has_doctors','Relation\RelationsController@hospitalsHasDoctor');
+
+Route::get('hospitals_has_doctors_male','Relation\RelationsController@hospitalsHasOnlyMaleDoctors');
+
+Route::get('hospitals_not_has_doctors','Relation\RelationsController@hospitalsNotHasDoctors');
+
+
+Route::get('doctors/services/{doctor_id}','Relation\RelationsController@getDoctorServicesById')-> name('doctor.services');
+Route::post('saveServices-to-doctor','Relation\RelationsController@saveServicesToDoctors')-> name('save.doctor.services');
 
 
 
@@ -135,4 +164,26 @@ Route::get('doctors/{hospital_id}','Relation\RelationsController@doctors')-> nam
 
 
 
-#################### Begin relations routs ####################
+#################### Begin many to many routs ####################
+Route::get('doctors-services','Relation\RelationsController@getDoctorServices');
+Route::get('service-doctors','Relation\RelationsController@getServiceDoctors');
+#################### End many to many routs ####################
+
+#################### Begin has one  through  ####################
+
+Route::get('has-one-through','Relation\RelationsController@getPatientDoctor');
+
+Route::get('has-many-through','Relation\RelationsController@getCountryDoctor');
+
+
+#################### End has one  through  ####################
+
+
+################Begin accessors and  mutators #########
+
+
+Route::get('accessors','Relation\RelationsController@getDoctors');//get data
+
+
+
+################End  accessors and  mutators #########

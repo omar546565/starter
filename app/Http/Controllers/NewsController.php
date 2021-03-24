@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
+use App\Exports\UserExport;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 class NewsController extends Controller
 {
     /**
@@ -70,7 +72,10 @@ class NewsController extends Controller
     {
         //
     }
-
+    public function export()
+    {
+        return Excel::download(new UserExport(), 'invoices.xlsx');
+    }
     /**
      * Remove the specified resource from storage.
      *

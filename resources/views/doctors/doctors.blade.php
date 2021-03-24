@@ -22,6 +22,7 @@
                     <th scope="col">#</th>
                     <th scope="col">الاسم</th>
                     <th scope="col">المسمى</th>
+                    <th scope="col">العمليات</th>
 
                 </tr>
                 </thead>
@@ -32,6 +33,7 @@
                     <th scope="row">{{$doctor -> id}}</th>
                     <td>{{$doctor -> name}}</td>
                     <td>{{$doctor -> title}}</td>
+                    <td><a href="{{route('doctor.services',$doctor -> id)}}" class="btn btn-success">عرض الخدمات</a> </td>
 
                 </tr>
                     @endforeach

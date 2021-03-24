@@ -9,11 +9,16 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "barryvdh/laravel-dompdf": "^0.9.0",
+        "barryvdh/laravel-snappy": "^0.4.8",
+        "bulkgate/sms": "^2.0",
+        "carlos-meneses/laravel-mpdf": "^2.1",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^2.0",
         "laravel/ui": "1.2",
+        "maatwebsite/excel": "^3.1",
         "mcamara/laravel-localization": "^1.5"
     },
     "require-dev": {

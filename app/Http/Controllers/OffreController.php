@@ -41,6 +41,26 @@ class OffreController extends Controller
            ]);
 
     }
+    public  function  nameconfirm(Request $request){
+      $price =  $request -> price;
+
+        $offer = Offer::where('price',$price)->count('price');
+
+      if ($offer > 0)
+        return response() -> json([
+           'status' =>  true,
+           'msg' =>  'الرقم موجود اختر غيره',
+
+        ]);
+       else
+
+           return response() -> json([
+               'status' =>  false,
+               'msg' =>  'الرقم متوفر ',
+
+           ]);
+
+    }
 
     public  function  all(){
                $offers = Offer::select('id','name','price','details','photo') ->get();

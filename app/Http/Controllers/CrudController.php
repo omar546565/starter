@@ -6,6 +6,7 @@ use App\Events\VideoViewer;
 use App\Http\Requests\OfferRequest;
 use App\Models\Offer;
 use App\Models\Video;
+use App\Scopes\OfferScope;
 use App\Traits\OfferTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -68,7 +69,7 @@ class CrudController extends Controller
          //insert
         Offer::create([
             'photo' => $file_name,
-            'name' => $request -> name,
+            'name' =>  $request -> name,
             'price' => $request -> price,
             'details' => $request -> details,
              ]);
@@ -90,9 +91,16 @@ class CrudController extends Controller
 
     public function getAllOffers()
         {
-            $offers = Offer::select('id','name','price','details','photo') ->get();
+          //  $offers = Offer::select('id','name','price','details','photo') ->get();
 
-            return view('offers.all',compact('offers'));
+########################paginate result##############################
+             $offers = Offer::select('id','name','price','details','photo') ->paginate(PAGINATION_COUNT);
+
+           //  view('offers.all',compact('offers'));
+
+     return   view('offers.paginations',compact('offers'));
+
+
 
        }
 
@@ -163,6 +171,19 @@ class CrudController extends Controller
            $video = Video::first();
            event(new VideoViewer($video));
            return view ('video') -> with('video',$video);
+            }
+
+            public function getAllInactiveOffers(){
+          // where  whereNull whereNotNull  whereIn
+
+         //     return  $inactiveOffers =  Offer::invalid()->get(); // all offer inactive
+
+
+                             // global scope
+         //   return  $inactiveOffers =  Offer::get(); // all offer inactive
+                // remove global scope
+           return     $Offers =  Offer::withoutGlobalScope(OfferScope::class) ->get();
+
             }
 
 
