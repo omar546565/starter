@@ -38,12 +38,30 @@ class HomeController extends Controller
 
     }
 
+    public function generate_pdf()
+    {
+        $data = [
+            'foo' => 'bar'
+        ];
+        $pdf = PDF::loadView('invoice', $data);
+        return $pdf->stream('document.pdf');
+    }
+
+
+    public function invoice()
+    {
+        return view('invoice');
+
+
+
+    }
     public function index22($id)
     {
-       // return view('invoice');
+     //   return view('invoice');
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML($this->convert($id));
-        return $pdf->stream();
+       $pdf->loadHTML($this->convert($id));
+      return $pdf->stream();
+
 
     }
     public function convert($id){
@@ -53,7 +71,7 @@ class HomeController extends Controller
         foreach ($customer as $cust){
             $output = '
                 <!DOCTYPE HTML>
-                <html dir="rtl">
+                <html  style="direction: rtl;">
                 <body>
                 <head>
                  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -61,9 +79,9 @@ class HomeController extends Controller
                     </head>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi6oQsWAmA16Ifbvvg5lFkR6HuCw1rUKW7Zg&usqp=CAU">
                      <h1 >Test3443</h1>
-                    <div dir="rtl" >
+                    <div>
                     <h1 >'.$cust->id.'</h1>
-                    <h1>'.$cust->name.'</h1>
+                    <h1 style="font-family:XBRiyaz,sans-serif " >'.$cust->name.'</h1>
                     <h1 >'.$cust->email.'</h1>
                     </div>`
                  </body>

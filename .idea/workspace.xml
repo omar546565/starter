@@ -2,28 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53a7f495-80ff-4987-8cc1-b41cb940ea62" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Exports/UserExport.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Service.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/pdf.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/invoice.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/starter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/starter.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CrudController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OffreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OffreController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Relation/RelationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Relation/RelationsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Doctor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Doctor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Hospital.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Hospital.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Offer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Offer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/doctors/doctors.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doctors/doctors.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/doctors/hospitals.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doctors/hospitals.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/invoice.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -289,7 +270,9 @@
       <workItem from="1615268759210" duration="3000" />
       <workItem from="1615268764183" duration="2000" />
       <workItem from="1615268814973" duration="4134000" />
-      <workItem from="1616563616828" duration="11105000" />
+      <workItem from="1616563616828" duration="12110000" />
+      <workItem from="1616577072561" duration="2107000" />
+      <workItem from="1616583705773" duration="942000" />
     </task>
     <servers />
   </component>
@@ -310,10 +293,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.145.1360.728@0.0.1920.1040" timestamp="1616574653614" />
-    <state x="1004" y="262" width="585" height="534" key="find.popup" timestamp="1616574749438">
+    <state x="1004" y="262" width="585" height="534" key="find.popup" timestamp="1616583736282">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1004" y="262" width="585" height="534" key="find.popup/0.0.1920.1040/1920.145.1360.728@0.0.1920.1040" timestamp="1616574749438" />
+    <state x="1004" y="262" width="585" height="534" key="find.popup/0.0.1920.1040/1920.145.1360.728@0.0.1920.1040" timestamp="1616583736282" />
   </component>
   <component name="masterDetails">
     <states>

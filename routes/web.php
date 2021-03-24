@@ -63,6 +63,8 @@ Auth::routes(['verify'=>true]);
 
 Route::get('/home', 'HomeController@index')->name('home') ->middleware('verified');
 Route::get('/home22/{id}', 'HomeController@index22')->name('home22') ->middleware('verified');
+Route::get('/invoice', 'HomeController@invoice') ;
+Route::get('/generate_pdf', 'HomeController@generate_pdf') ;
 Route::get('/export', 'NewsController@export')->name('home2') ;
 
 
