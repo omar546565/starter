@@ -6,10 +6,14 @@ use App\Events\VideoViewer;
 use App\Http\Requests\OfferRequest;
 use App\Models\Offer;
 use App\Models\Video;
+use App\Notifications\OfferStore;
 use App\Scopes\OfferScope;
 use App\Traits\OfferTrait;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
+use function GuzzleHttp\Promise\all;
 
 class CrudController extends Controller
 {
@@ -73,6 +77,11 @@ class CrudController extends Controller
             'price' => $request -> price,
             'details' => $request -> details,
              ]);
+
+        $offer = new Offer();
+        $user = User::all();
+        Notification::send($user,new OfferStore($offer));
+
              return  redirect()->back()->with(['success' => 'تم إضافة العرض بنجاح']);
 
     }

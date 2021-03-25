@@ -28,7 +28,7 @@ Route::get('login', function () {
 }) -> name('login');
 
 
-Route::get('/23', function () {
+Route::get('/', function () {
 
     return view('welcome');
 });
