@@ -82,7 +82,7 @@ class CrudController extends Controller
 
         $offer = new Offer();
         $user = User::all();
-        Event::send($user,new StatusLiked($offer));
+        Notification::send($user,new OfferStore($offer));
 
              return  redirect()->back()->with(['success' => 'تم إضافة العرض بنجاح']);
 
