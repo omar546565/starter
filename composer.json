@@ -19,7 +19,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "1.2",
         "maatwebsite/excel": "^3.1",
-        "mcamara/laravel-localization": "^1.5"
+        "mcamara/laravel-localization": "^1.5",
+        "pusher/pusher-php-server": "^6.1"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

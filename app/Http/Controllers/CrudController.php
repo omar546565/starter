@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\StatusLiked;
 use App\Events\VideoViewer;
 use App\Http\Requests\OfferRequest;
 use App\Models\Offer;
@@ -11,6 +12,7 @@ use App\Scopes\OfferScope;
 use App\Traits\OfferTrait;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use function GuzzleHttp\Promise\all;
@@ -80,7 +82,7 @@ class CrudController extends Controller
 
         $offer = new Offer();
         $user = User::all();
-        Notification::send($user,new OfferStore($offer));
+        Event::send($user,new StatusLiked($offer));
 
              return  redirect()->back()->with(['success' => 'تم إضافة العرض بنجاح']);
 

@@ -53,6 +53,10 @@ return [
         'null' => [
             'driver' => 'null',
         ],
+        'options' => [
+            'cluster' => 'mt1',
+            'useTLS' => true
+        ],
 
     ],
 
