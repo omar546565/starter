@@ -32,6 +32,20 @@ Route::get('/', function () {
 
     return view('welcome');
 });
+Route::get('/1', function () {
+
+    return view('welcome1');
+});
+
+    Route::get('test', function () {
+        event(new App\Events\MyEvent('hello world'));
+
+        return "Event has been sent!";
+    });
+    Route::get('test2', function () {
+        event(new App\Events\StatusLiked('Someone'));
+        return "Event has been sent!";
+    });
 
 Route::get('index','Front\UserController@getIndex');
 

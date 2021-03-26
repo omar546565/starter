@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53a7f495-80ff-4987-8cc1-b41cb940ea62" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/starter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/starter.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Events/MyEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/welcome1.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CrudController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Events/StatusLiked.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Events/StatusLiked.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/broadcasting.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/broadcasting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,21 +200,21 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Events" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\starter\app\Models" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\starter\app\Events" />
       <recent name="C:\wamp64\www\starter\resources\views" />
       <recent name="C:\wamp64\www\starter\app\Exports" />
       <recent name="C:\wamp64\www\starter\app\Models" />
       <recent name="C:\wamp64\www\starter\resources\views\doctors" />
-      <recent name="C:\wamp64\www\starter\resources\views\auth" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\starter\app\Models" />
     </key>
   </component>
   <component name="RunManager">
@@ -288,7 +287,9 @@
       <workItem from="1616587929506" duration="232000" />
       <workItem from="1616647333217" duration="6867000" />
       <workItem from="1616664204222" duration="903000" />
-      <workItem from="1616666772717" duration="2217000" />
+      <workItem from="1616666772717" duration="2528000" />
+      <workItem from="1616733668698" duration="2778000" />
+      <workItem from="1616736923636" duration="22000" />
     </task>
     <servers />
   </component>
@@ -309,10 +310,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.145.1360.728@0.0.1920.1040" timestamp="1616574653614" />
-    <state x="1004" y="262" width="585" height="534" key="find.popup" timestamp="1616648072916">
+    <state x="1004" y="262" width="585" height="534" key="find.popup" timestamp="1616735127620">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1004" y="262" width="585" height="534" key="find.popup/0.0.1920.1040/1920.145.1360.728@0.0.1920.1040" timestamp="1616648072916" />
+    <state x="1004" y="262" width="585" height="534" key="find.popup/0.0.1920.1040/1920.145.1360.728@0.0.1920.1040" timestamp="1616735127620" />
   </component>
   <component name="masterDetails">
     <states>
