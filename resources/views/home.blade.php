@@ -13,7 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     يرجى مراجعة المدير
                 </div>
 
