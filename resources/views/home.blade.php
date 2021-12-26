@@ -12,10 +12,9 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
-                    @endif
+                    @endi
                     يرجى مراجعة المدير
                 </div>
-
                 <div class="content">
                     <div class="title m-b-md">
                         create add
